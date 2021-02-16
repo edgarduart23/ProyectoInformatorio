@@ -1,0 +1,15 @@
+
+
+{% block content %}
+    <h2>Noticias</h2>
+    <ul>
+        {% for noticia in object_list %}
+            <li>{{ noticia.author }}</li>
+            <li>{{ noticia.title }}</li>
+            <li>{{ noticia.text }}</li>
+            <li>{{ noticia.created_date }}</li>
+            <li>{{ noticia.published_date }}</li>
+           
+        {% endfor %}
+    </ul>
+{% endblock %}
