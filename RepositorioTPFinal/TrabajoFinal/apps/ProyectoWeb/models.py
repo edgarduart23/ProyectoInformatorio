@@ -12,6 +12,7 @@ class Noticia(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
+    image = models.ImageField(verbose_name="Imagen", upload_to="noticias")
     def publish(self):
         self.published_date = timezone.now()
         self.save()
