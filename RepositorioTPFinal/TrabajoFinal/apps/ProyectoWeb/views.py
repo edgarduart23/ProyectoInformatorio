@@ -5,6 +5,7 @@ from .forms import *
 from django.urls import reverse_lazy
 
 class NoticiasList(ListView):
+    queryset = Noticia.objects.order_by('-created_date')
     model = Noticia
     template_name = 'noticias.html'
     
