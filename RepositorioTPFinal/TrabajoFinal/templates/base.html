@@ -63,7 +63,7 @@
                                 <a class="nav-link" href="article.html">HISTORY</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">CULTURE</a>
+                                <a class="nav-link" href="#">CATEGORIAS</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">TECH</a>
@@ -90,216 +90,31 @@
                 </nav>
             </div>
         </div>
-
+        
         <div class="row ml-0 mr-0">
-            <div class="col-md-6 pr-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/left-img.jpg'%}" alt="">
-                    <div class="card-img-overlay d-flex align-items-center justify-content-center flex-column">
-                        <p>Spirituality</p>
-                        <hr />
-                        <h2>Free template designed
-                            by FreeHTML5.co</h2>
-                        <a href="article.html" class="btn">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 pl-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/right-img.jpg'%}" alt="">
-                    <div class="card-img-overlay d-flex align-items-center justify-content-center flex-column">
-                        <p>DECOR</p>
-                        <hr />
-                        <h2>Sed ut perspiciatis unde
-                            omnis iste natus</h2>
-                        <a href="article.html" class="btn">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pr-0 first">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/architecture.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Architecture</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pl-0 pr-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/interior.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Interior</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pl-0 pr-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/food.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Food</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pl-0 last">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/travel.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Travel</h5>
-                    </div>
-                </div>
-            </div>
+            {% block categoria %}
+             
+                
+            
+            {% endblock %}
         </div>
 
     </header>
 
     <div class="container-fluid video-player">
         <div class="container">
-            <div class="screen embed-responsive embed-responsive-16by9">
-                <iframe id="screen" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
-            </div>
+            
 
-            <div class="play-list">
-                <div class="owl-carousel owl-carousel4 owl-theme">
-                    <div>
-                        <div class="card"> <img class="card-img link-img"
-                                data-link="https://www.youtube.com/embed/ujPNSC4JllE" src="assets/images/play1.png"
-                                alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card"> <img class="card-img link-img"
-                                data-link="https://www.youtube.com/embed/rMT8CffVFMk" src="assets/images/play2.png"
-                                alt="">
-
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card"> <img class="card-img link-img"
-                                data-link="https://www.youtube.com/embed/bGC9f1Po6Q8" src="assets/images/play3.png"
-                                alt="">
-
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card"> <img class="card-img link-img"
-                                data-link="https://www.youtube.com/embed/yHk_sypSiXU" src="assets/images/play4.png"
-                                alt="">
-
-                        </div>
-                    </div>
-                    <div>
-                        <div class="card"> <img class="card-img link-img"
-                                data-link="https://www.youtube.com/embed/7yoqm-kgKEk" src="assets/images/play5.png"
-                                alt="">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
+            
+                <hr>
+              <div class="container">
+                {% block content %}
+                {% endblock %}
+             </div>
+   
 
 
-
-            <div class="row vr-gallery">
-                <div class="col-md-8 mb-4">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
-                            <img src="{% static 'lib/blog/assets/images/gallery-img1.png'%}" alt="">
-                        </div>
-                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                            <p><small>march 27, 2020</small></p>
-                            <h3>Trendy Summer
-                                Fashion</h3>
-                            <p>
-                                To take a trivial example, which of us ever undertakes laborious physical exercise,
-                                except to obtain some advantage from it? But who has any right to find fault with a man
-                                who chooses...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 pl-4 mb-4">
-                    <div class="card">
-                        <img class="card-img h-100" src="{% static 'lib/blog/assets/images/video-cover1.jpg'%}" alt="">
-                        <div class="card-img-overlay opacity text-center">
-                            <a class="play-1" href="https://www.youtube.com/watch?v=vpO8sZDxOGI"><img
-                                    src="assets/images/play-icon.png" alt=""></a>
-                            <h5 class="card-title">Weekend In Boston</h5>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8 mb-4 pr-0 pd-md">
-                    <div class="card">
-                        <img class="card-img h-100" src="{% static 'lib/blog/assets/images/gallery-img2.jpg'%}" alt="">
-                        <div class="card-img-overlay">
-                            <div class="contact-box">
-                                <p><small>march 27, 2020</small></p>
-                                <h3>Trendy Summer
-                                    Fashion</h3>
-                                <p>To take a trivial example, which of us ever undertakes laborious physical exercise,
-                                    some advantage from it? fault with a man who chooses...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 pl-4 mb-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{% static 'lib/blog/assets/images/gallery-img3.jpg'%}" alt="">
-                        <div class="card-body bg-gray cus-pd2 cus-arrow-up">
-                            <p><small>march 27, 2020</small></p>
-                            <h3>Trendy Summer
-                                Fashion</h3>
-                            <p>To take a trivial example, which of us ever undertakes laborious physical exercise, some
-                                advantage from it? fault with a man who chooses...</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8 mb-4">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
-                            <img src="{% static 'lib/blog/assets/images/gallery-img4.jpg'%}" alt="">
-                        </div>
-                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                            <p><small>march 27, 2020</small></p>
-                            <h3>Trendy Summer
-                                Fashion</h3>
-                            <p>
-                                To take a trivial example, which of us ever undertakes laborious physical exercise,
-                                except to obtain some advantage from it? But who has any right to find fault with a man
-                                who chooses...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 pl-4 mb-4">
-                    <div class="card">
-                        <img class="card-img h-100" src="lib/blog/assets/images/video-cover2.jpg" alt="">
-                        <div class="card-img-overlay opacity text-center">
-                            <a class="play-1" href="https://www.youtube.com/watch?v=vpO8sZDxOGI"><img
-                                    src="{% static 'lib/blog/assets/images/play-icon.png'%}" alt=""></a>
-                            <h5 class="card-title">Weekend In Boston</h5>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12 text-center">
-                    <a href="#" class="btn">LOAD MORE</a>
-
-                </div>
-            </div>
+            
 
         </div>
     </div>
@@ -461,11 +276,7 @@
         </div>
     </div>
 
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
-   
+  
     <footer class="container-fluid pt-5">
         <div class="container">
             <h2 class="logo text-center">Shahala</h2>
