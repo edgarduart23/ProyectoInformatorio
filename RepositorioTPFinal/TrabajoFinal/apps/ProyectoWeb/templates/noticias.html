@@ -17,6 +17,9 @@
                             <p>
                                 {{ noticia.text }}
                             </p>
+                            <p>
+                                Posted: {{ noticia.published_date|timesince }} ago
+                            </p>
                         </div>
                     </div>
                 </div>
