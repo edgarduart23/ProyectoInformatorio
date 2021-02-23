@@ -63,7 +63,7 @@
                                 <a class="nav-link" href="article.html">HISTORY</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">CULTURE</a>
+                                <a class="nav-link" href="#">CATEGORIAS</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">TECH</a>
@@ -90,68 +90,13 @@
                 </nav>
             </div>
         </div>
-
+        
         <div class="row ml-0 mr-0">
-            <div class="col-md-6 pr-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/left-img.jpg'%}" alt="">
-                    <div class="card-img-overlay d-flex align-items-center justify-content-center flex-column">
-                        <p>Spirituality</p>
-                        <hr />
-                        <h2>Free template designed
-                            by FreeHTML5.co</h2>
-                        <a href="article.html" class="btn">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 pl-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/right-img.jpg'%}" alt="">
-                    <div class="card-img-overlay d-flex align-items-center justify-content-center flex-column">
-                        <p>DECOR</p>
-                        <hr />
-                        <h2>Sed ut perspiciatis unde
-                            omnis iste natus</h2>
-                        <a href="article.html" class="btn">READ MORE</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pr-0 first">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/architecture.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Architecture</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pl-0 pr-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/interior.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Interior</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pl-0 pr-0">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/food.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Food</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-3 pl-0 last">
-                <div class="card">
-                    <img class="card-img" src="{% static 'lib/blog/assets/images/travel.png'%}" alt="">
-                    <div class="card-img-overlay">
-                        <h5>Travel</h5>
-                    </div>
-                </div>
-            </div>
+            {% block categoria %}
+             
+                
+            
+            {% endblock %}
         </div>
 
     </header>
