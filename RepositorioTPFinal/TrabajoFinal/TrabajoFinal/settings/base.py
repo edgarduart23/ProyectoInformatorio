@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.Usuarios',
+    'apps.comentarios',
     'apps.ProyectoWeb',
     'apps.categorias',
 ]
@@ -78,9 +80,9 @@ WSGI_APPLICATION = 'TrabajoFinal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Informatorio',
+        'NAME': 'informatorio',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': '41840177',
         'HOST': '127.0.0.1',
         'DATABASE_PORT': '5432',
     }
@@ -130,6 +132,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(os.path.dirname(BASE_DIR),'static')
 ]
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
+
+LOGIN_REDIRECT_URL = 'ProyectoWeb:noticia_list'

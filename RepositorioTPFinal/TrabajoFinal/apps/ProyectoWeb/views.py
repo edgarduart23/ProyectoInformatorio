@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import ListView, CreateView
 from .models import *
 from .forms import *
@@ -20,7 +20,7 @@ class NoticiaCreateView(CreateView):
             'view_type': 'create'
         })
         return context
-    
+
     
 def PruebaIndex(request):
     return render(request, 'index.html')
