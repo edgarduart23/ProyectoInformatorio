@@ -56,14 +56,20 @@
                     </button>
                     <div id="my-nav" class="collapse navbar-collapse">
                         <ul class="navbar-nav mx-auto">
+                            {% if request.user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="article.html">NEWS</a>
+                                <a class="nav-link" href="{% url 'ProyectoWeb:logout' %}">Cerrar sesion</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'ProyectoWeb:registro' %}">Registrarse</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="article.html">HISTORY</a>
+                                <a class="nav-link" href="{% url 'ProyectoWeb:login' %}">Iniciar sesion</a>
                             </li>
+                            {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href="#">CATEGORIAS</a>
+                                <a class="nav-link" href="{% url'ProyectoWeb:noticia_list' %}">Pagina principal</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">TECH</a>
@@ -100,7 +106,13 @@
         </div>
 
     </header>
-
+    {% if messages %}
+        {% for message in messages %}
+            <div class="notification {{message.tags}}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
     <div class="container-fluid video-player">
         <div class="container">
             
