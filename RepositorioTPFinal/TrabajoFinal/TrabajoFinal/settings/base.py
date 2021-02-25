@@ -39,11 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.ProyectoWeb',
     'apps.comentarios',
-<<<<<<< HEAD
     
-=======
 
->>>>>>> 124195304caac2fec4d26120660255b3bae5bfc1
     'apps.categorias',
 ]
 
