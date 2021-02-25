@@ -38,12 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.ProyectoWeb',
-<<<<<<< HEAD
-    'comentarios',
-    
-=======
+    'apps.comentarios',
+
     'apps.categorias',
->>>>>>> 6aad539e44399b506372f759ed54feb3f7f6cf11
 ]
 
 MIDDLEWARE = [
