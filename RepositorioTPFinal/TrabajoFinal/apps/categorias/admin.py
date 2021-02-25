@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.categorias.models import * 
+from .models import Categoria
 # Register your models here.
 
 
