@@ -38,12 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.ProyectoWeb',
-<<<<<<< HEAD
-    'comentarios',
+    'apps.comentarios',
     
-=======
     'apps.categorias',
->>>>>>> 6aad539e44399b506372f759ed54feb3f7f6cf11
 ]
 
 MIDDLEWARE = [
@@ -83,9 +80,9 @@ WSGI_APPLICATION = 'TrabajoFinal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'informatorio',
+        'NAME': 'Informatorio',
         'USER': 'postgres',
-        'PASSWORD': '41840177',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
         'DATABASE_PORT': '5432',
     }
