@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import ListView, CreateView
 from .models import *
 from .forms import *
 from django.urls import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 class NoticiasList(ListView):
     queryset = Noticia.objects.order_by('-created_date')
@@ -20,7 +22,20 @@ class NoticiaCreateView(CreateView):
             'view_type': 'create'
         })
         return context
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            messages.success(request, f'Usuario {username} creado')
+            return redirect('ProyectoWeb:noticia_list')
+    else:
+        form = UserRegisterForm()
     
+    ctx = {'form' : form}
+    return render(request, 'register.html', ctx)    
     
 def PruebaIndex(request):
     return render(request, 'index.html')

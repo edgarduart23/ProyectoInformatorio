@@ -7,6 +7,7 @@ from django.utils import timezone
 
 
 class Noticia(models.Model):
+    category = models.ForeignKey('categorias.Categoria', on_delete=models.SET_NULL, blank=False, null=True)
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
