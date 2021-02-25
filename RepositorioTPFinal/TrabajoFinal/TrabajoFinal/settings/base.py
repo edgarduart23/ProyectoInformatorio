@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'TrabajoFinal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'informatorio',
+        'NAME': 'Informatorio',
         'USER': 'postgres',
-        'PASSWORD': '41840177',
+        'PASSWORD': 'admin',
         'HOST': '127.0.0.1',
         'DATABASE_PORT': '5432',
     }
