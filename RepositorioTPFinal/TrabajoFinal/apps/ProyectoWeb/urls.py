@@ -9,7 +9,7 @@ app_name = 'ProyectoWeb'
 urlpatterns = [
        path('noticias/', NoticiasList.as_view(), name= 'noticia_list'),
        path('noticias/add', NoticiaCreateView.as_view(), name= 'noticia_create'),
-       path('prueba/', views.PruebaIndex)
+       path('', views.PruebaIndex)
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
