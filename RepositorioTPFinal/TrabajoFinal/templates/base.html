@@ -65,11 +65,7 @@
                                 <a class="nav-link" href="{% url 'Usuarios:registro' %}">Registrarse</a>
                             </li>
                             <li class="nav-item">
-<<<<<<< HEAD
-                                <a href="{% url 'categorias:tipos_categorias' %}">CATEGORIAS</a>
-=======
                                 <a class="nav-link" href="{% url 'Usuarios:login' %}">Iniciar sesion</a>
->>>>>>> ba5bba17ee3b105ae96f76195750f15795f5735a
                             </li>
                             {% endif %}
                             <li class="nav-item">
@@ -81,10 +77,7 @@
                             </li>
                             {% endif %}
                             <li class="nav-item">
-                                <a class="nav-link" href="#">LIFE</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">OPINION</a>
+                                <a class="nav-link" href="{% url 'categorias:tipos_categorias' %}">Categorias</a>
                             </li>
                             <li class="nav-item">
                                 <form action="" method="POST">
