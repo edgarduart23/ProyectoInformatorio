@@ -10,6 +10,7 @@ urlpatterns = [
        path('noticias/add', NoticiaCreateView.as_view(), name= 'noticia_create'),
        path('noticias/edit/<int:pk>/', NoticiaUpdateView.as_view(), name= 'noticia_update'),
        path('prueba/', views.PruebaIndex),
+       path('', views.PruebaIndex)
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
