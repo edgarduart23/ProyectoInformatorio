@@ -7,6 +7,9 @@ from .models import *
 class CategoriaList(ListView):
     model = Categoria
     template_name = 'tipos.html'
+
+
+
     
 #class CategoriaCreateView(CreateView):
 #    model = Noticia

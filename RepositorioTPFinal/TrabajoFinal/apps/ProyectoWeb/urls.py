@@ -8,7 +8,8 @@ app_name = 'ProyectoWeb'
 urlpatterns = [
        path('noticias/', NoticiasList.as_view(), name= 'noticia_list'),
        path('noticias/add', NoticiaCreateView.as_view(), name= 'noticia_create'),
-       path('', views.PruebaIndex)
+       path('', views.PruebaIndex),
+       path('filtro/<int:pk>/', FiltroList.as_view(), name = 'filtro_noticia'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
