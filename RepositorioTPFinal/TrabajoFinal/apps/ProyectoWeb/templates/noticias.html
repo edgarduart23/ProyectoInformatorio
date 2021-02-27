@@ -21,6 +21,9 @@
                                 Posted: {{ noticia.published_dates|timesince }} ago
                             </p>
                         </div>
+                        <a href = "{% url 'ProyectoWeb:noticia_update' noticia.id %}" class="btn btn-warning btn-xs btn-flat">
+                            <i class ="fas fa-trahs-alt"></i>
+                        </a>
                     </div>
                 </div>
 
