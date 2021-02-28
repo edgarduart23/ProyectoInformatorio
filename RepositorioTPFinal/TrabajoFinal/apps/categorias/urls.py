@@ -7,5 +7,6 @@ from .views import *
 app_name = 'categorias'
 urlpatterns = [
     path('tipos/', CategoriaList.as_view(), name= 'tipos_categorias'),
+    
 
 ]

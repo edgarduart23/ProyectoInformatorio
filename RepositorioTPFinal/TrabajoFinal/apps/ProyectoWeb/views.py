@@ -36,3 +36,13 @@ class NoticiaUpdateView(CreateView):
    
 def PruebaIndex(request):
     return render(request, 'index.html')
+
+class FiltroList(ListView):
+    model = Noticia
+    template_name = 'filtro.html'
+
+    def get_queryset(self):
+        categoria_id = self.kwargs.get('category')
+        return Noticia.objects.filter(category = categoria_id)
+
+
