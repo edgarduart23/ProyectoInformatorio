@@ -59,7 +59,18 @@ class FiltroList(ListView):
     def get_queryset(self, *args, **kwargs):
         categoria_id = self.kwargs['pk']
         return Noticia.objects.filter(category = categoria_id)
-        print(categoria_id)
+        
+    
+class NoticiaMyPostsView(ListView):
+    model = Noticia
+    template_name = 'noticia_myposts.html'
+
+    def get_queryset(self, *args, **kwargs):
+        user = self.request.user
+        print (user)
+        return Noticia.objects.filter(author = user)
+        print (user)
         pass
+      
 
 
