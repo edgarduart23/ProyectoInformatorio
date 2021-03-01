@@ -117,6 +117,16 @@
 
                             </li>
                             {% endif %}
+                             <li class="nav-item">
+                                <a class="nav-link" href="{% url 'ProyectoWeb:noticia_myposts' %}">My Posts</a>
+                            </li>
+                            {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'ProyectoWeb:noticia_create' %}">Agregar Post</a>
+                            </li>
+
+                           
+                            {% endif %}
                             
                             
                             
