@@ -56,29 +56,34 @@
                     </button>
                     <div id="my-nav" class="collapse navbar-collapse">
                         <ul class="navbar-nav mx-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'ProyectoWeb:noticia_list' %}">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'categorias:tipos_categorias' %}">Categories</a>
+                            </li>
+
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'Usuarios:logout' %}">Cerrar sesion</a>
+                                <a class="nav-link" href="{% url 'Usuarios:logout' %}">Log Out</a>
                             </li>
                             {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'Usuarios:registro' %}">Registrarse</a>
+                                <a class="nav-link" href="{% url 'Usuarios:registro' %}">Create New Account</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'Usuarios:login' %}">Iniciar sesion</a>
+                                <a class="nav-link" href="{% url 'Usuarios:login' %}">Log In</a>
                             </li>
                             {% endif %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'ProyectoWeb:noticia_list' %}">Pagina principal</a>
-                            </li>
+                            
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'ProyectoWeb:noticia_create' %}">Agregar Post</a>
                             </li>
                             {% endif %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{% url 'categorias:tipos_categorias' %}">Categorias</a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <form action="" method="POST">
                                     <div class="input-group mt-0 mx-auto" style="width:16px;">
