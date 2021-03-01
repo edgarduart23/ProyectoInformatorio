@@ -1,7 +1,8 @@
 
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Noticias</h2>
+    <h2>POSTS</h2>
+    <br>
     <ul>
         {% for noticia in object_list %}
 
@@ -24,18 +25,16 @@
                                 Posted: {{ noticia.published_dates|timesince }} ago
                             </p>
                         </div>
-                        <a href = "{% url 'ProyectoWeb:noticia_update' noticia.id %}" class="btn btn-warning btn-xs btn-flat">
-                            <i class ="fas fa-trahs-alt"></i>
-                        </a>
+                        <a href = "{% url 'ProyectoWeb:noticia_update' noticia.id %}" class="btn">UPDATE</a>
+                        <a href="#" class="btn">VER MAS</a>
+
+                        
                     </div>
                 </div>
 
                 
 
-                <div class="col-md-12 text-center">
-                    <a href="#" class="btn">VER MAS</a>
-
-                </div>
+              
             </div>
           
            
