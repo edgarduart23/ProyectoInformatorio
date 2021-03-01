@@ -1,13 +1,16 @@
-
 {% extends 'base.html' %}
 {% block content %}
+
+{% load crispy_forms_tags %}
+
     <div class="container">
-      <h1> esta es la vista de {{view_type}} </h1>
+      <h1> Crear POST</h1>
+      <br>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{form.as_p}}
+        {{form|crispy}}
         
-        <button type="submit" class="btn btn-primary">{{view_type|title }}</button>
+        <button type="submit" class="btn btn-primary">Crear</button>
        </form>
       </div>
 {% endblock %}

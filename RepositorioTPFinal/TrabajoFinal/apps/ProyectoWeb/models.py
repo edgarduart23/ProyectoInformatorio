@@ -14,6 +14,7 @@ class Noticia(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_dates = models.DateTimeField(default=timezone.now)
     image = models.ImageField(verbose_name="Imagen", upload_to="noticias")
-  
+
     def __str__(self):
         return self.title
+        
