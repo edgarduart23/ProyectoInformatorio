@@ -5,6 +5,7 @@ from .forms import *
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 class NoticiasList(ListView):
     queryset = Noticia.objects.order_by('-created_date')
     model = Noticia
