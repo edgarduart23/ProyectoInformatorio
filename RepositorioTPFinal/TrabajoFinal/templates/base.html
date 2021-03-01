@@ -64,6 +64,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'categorias:tipos_categorias' %}">Categories</a>
                             </li>
+                            
+                            {% if request.user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'ProyectoWeb:noticia_create' %}">New Post</a>
+                            </li>
+                            {% endif %}
 
                             {% if request.user.is_authenticated %}
                             <li class="nav-item">
@@ -87,6 +93,8 @@
 
                            
                             {% endif %}
+                            
+                            
                             
                             <li class="nav-item">
                                 <form action="" method="POST">
