@@ -3,23 +3,37 @@ from django.views.generic import ListView, CreateView, UpdateView
 from .models import *
 from .forms import *
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class NoticiasList(ListView):
     queryset = Noticia.objects.order_by('-created_date')
     model = Noticia
     template_name = 'noticias.html'
     
-class NoticiaCreateView(CreateView):
+class NoticiaCreateView(LoginRequiredMixin,CreateView):
     model = Noticia
     form_class = NoticiaForm
     template_name = 'createNoticia.html'
     success_url = reverse_lazy('ProyectoWeb:noticia_list')
+    
+    def form_valid(self, form):
+        
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return super(NoticiaCreateView, self).form_valid(form)
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
+        user = self.request.user
         context.update({
-            'view_type': 'create'
+            'view_type': 'create',
+            'user': 'user'
+            
         })
+        
         return context
+     
 
 class NoticiaUpdateView(UpdateView):
     model = Noticia

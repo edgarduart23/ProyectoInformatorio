@@ -1,14 +1,15 @@
 from django.db import models
-
-
+from django.contrib.auth.models import User
+#from django.contrib.auth.models import get_user_model
 from django.db import models
 from django.utils import timezone
 
+#User = get_user_model()
 
 
 class Noticia(models.Model):
     category = models.ForeignKey('categorias.Categoria', on_delete=models.SET_NULL, blank=False, null=True)
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)

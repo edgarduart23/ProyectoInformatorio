@@ -7,5 +7,7 @@ from .models import *
 class NoticiaForm(ModelForm):
     class Meta:
         model = Noticia
-        exclude = ('created_date', 'published_dates')
+        exclude = ( 'author','created_date', 'published_dates')
+        
         #fields = '__all__'
+        
