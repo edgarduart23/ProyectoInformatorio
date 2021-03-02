@@ -1,14 +1,38 @@
 
-
+{% extends 'base.html' %}
 {% block content %}
-    <h2>Noticias</h2>
+    <h2 style="text-align: center;">Noticias</h2>
     <ul>
         {% for noticia in object_list %}
-            <li>{{ noticia.author }}</li>
-            <li>{{ noticia.title }}</li>
-            <li>{{ noticia.text }}</li>
-            <li>{{ noticia.created_date }}</li>
-            <li>{{ noticia.published_date }}</li>
+            <br>
+            <div class="row vr-gallery">
+                <div class="col-md-8 mb-4">
+                    <div class="row">
+                        <class class="col-md-12 col-lg-7 pr-0 pd-md">
+                            <img src="{{ noticia.image.url }}" alt="">
+                        </class>
+                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                            <p><small>{{ noticia.created_date }}</small></p>
+                            <h3>{{ noticia.title }}</h3>
+                            <p>
+                                {{ noticia.text }}
+                            </p>
+                            <br>
+                            <p>
+                                Posteado hace {{ noticia.published_dates|timesince }}
+                            </p>
+                            <br>
+                            <p>
+                                Categoria: {{noticia.category}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <a href="#" class="btn">Leer {{noticia.title}}</a>
+                </div>
+            </div>
+            <hr>
            
         {% endfor %}
     </ul>
