@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <form class="form" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
 
-    <button type="submit" id="submit">Create New Account</button>
+    <button type="" id="submit">Create New Account</button>
 </form>
 
 {% endblock %}

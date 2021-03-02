@@ -1,17 +1,16 @@
 
 {% extends 'base.html' %}
 {% block content %}
-    <h2>POSTS</h2>
-    <br>
+    <h2 style="text-align: center;">Noticias</h2>
     <ul>
         {% for noticia in object_list %}
-
+            <br>
             <div class="row vr-gallery">
                 <div class="col-md-8 mb-4">
                     <div class="row">
-                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
+                        <class class="col-md-12 col-lg-7 pr-0 pd-md">
                             <img src="{{ noticia.image.url }}" alt="">
-                        </div>
+                        </class>
                         <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
                             <p><small> create date:{{ noticia.created_date }}</small></p>
                             <h3>Title: {{ noticia.title }}</h3>
@@ -24,22 +23,24 @@
                             <p>
                                 {{ noticia.text }}
                             </p>
+                            <br>
                             <p>
-                                Posted: {{ noticia.published_dates|timesince }} ago
+                                Posteado hace {{ noticia.published_dates|timesince }}
+                            </p>
+                            <br>
+                            <p>
+                                Categoria: {{noticia.category}}
                             </p>
                         </div>
-                        
-                        <a href="#" class="btn">VER MAS</a>
 
                         
                     </div>
                 </div>
-
-                
-
-              
+                <div class="col-md-12 text-center">
+                    <a href="#" class="btn">Leer {{noticia.title}}</a>
+                </div>
             </div>
-          
+            <hr>
            
         {% endfor %}
     </ul>
