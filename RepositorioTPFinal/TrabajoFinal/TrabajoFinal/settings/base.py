@@ -140,5 +140,5 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
-
+LOGOUT_REDIRECT_URL = 'ProyectoWeb:noticia_list'
 LOGIN_REDIRECT_URL = 'ProyectoWeb:noticia_list'

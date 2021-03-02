@@ -51,7 +51,7 @@
                     </button>
                     <div id="my-nav" class="collapse navbar-collapse">
                         <ul class="navbar-nav mx-auto">
-
+                            
                             <li>
                                 <a class="btn btn-outline-light btn-sm" href="{% url 'ProyectoWeb:noticia_list' %}" role="button">Home
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -67,8 +67,11 @@
                                     </svg>
                                 </a>
                             </li>
-                            
+                             
                             {% if request.user.is_authenticated %}
+                             {% if user.is_superuser %}
+                                    <li><a href="{% url 'admin:index' %}">Manage Category</a></li>
+                             {% endif %}
                             <li class="nav-item">
                                 <a class="btn btn-outline-light btn-sm" href="{% url 'ProyectoWeb:noticia_create' %}" role="button">New Post
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-clipboard-plus" viewBox="0 0 16 16">
