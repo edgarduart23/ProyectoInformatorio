@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 #from django.contrib.auth.models import get_user_model
 from django.db import models
 from django.utils import timezone
+from django.shortcuts import reverse
 
 #User = get_user_model()
 
@@ -15,7 +16,7 @@ class Noticia(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_dates = models.DateTimeField(default=timezone.now)
     image = models.ImageField(verbose_name="Imagen", upload_to="noticias")
-  
+
     def __str__(self):
         return self.title
     

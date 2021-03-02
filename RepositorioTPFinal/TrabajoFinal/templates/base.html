@@ -96,6 +96,9 @@
                                     </svg>
                                 </a>
                             </li>
+                             <li class="nav-item">
+                                <a class="nav-link" href="{% url 'ProyectoWeb:noticia_myposts' %}">My Posts</a>
+
                             {% else %}
                             <li class="nav-item">
                                 <a class="btn btn-outline-light btn-sm" href="{% url 'Usuarios:registro' %}" role="button">Create New Account
@@ -115,6 +118,12 @@
                             </li>
                             {% endif %}
 
+                            </li>
+                            {% endif %}
+                            
+                            
+                            
+                            
                             <li class="nav-item">
                                 <form action="" method="POST">
                                     <div class="input-group mt-0 mx-auto" style="width:16px;">
