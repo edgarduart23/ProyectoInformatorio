@@ -12,8 +12,14 @@
                             <img src="{{ noticia.image.url }}" alt="">
                         </class>
                         <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                            <p><small>{{ noticia.created_date }}</small></p>
-                            <h3>{{ noticia.title }}</h3>
+                            <p><small> create date:{{ noticia.created_date }}</small></p>
+                            <h3>Title: {{ noticia.title }}</h3>
+                            <p>
+                               author :{{ noticia.author }}
+                            </p>
+                             <p>
+                               category:   {{ noticia.category }}
+                            </p>
                             <p>
                                 {{ noticia.text }}
                             </p>
@@ -26,11 +32,22 @@
                                 Categoria: {{noticia.category}}
                             </p>
                         </div>
+                        
+                        <a href="#" class="btn">VER MAS</a>
+
+                        
                     </div>
                 </div>
+<<<<<<< HEAD
                 <div class="col-md-12 text-center">
                     <a href="#" class="btn">Leer {{noticia.title}}</a>
                 </div>
+=======
+
+                
+
+              
+>>>>>>> desarrollo
             </div>
             <hr>
            

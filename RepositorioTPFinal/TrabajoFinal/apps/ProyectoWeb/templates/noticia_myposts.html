@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Noticias</h2>
+    <ul>
+        {% for noticia in object_list %}
+            <div class="row vr-gallery">
+                <div class="col-md-8 mb-4">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
+                            <img src="{{ noticia.image.url }}" alt="">
+                        </div>
+                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                            <p><small>{{ noticia.created_date }}</small></p>
+                            <h3>{{ noticia.title }}</h3>
+                            <p>
+                                {{ noticia.text }}
+                            </p>
+                            <p>
+                                Posted: {{ noticia.published_dates|timesince }} ago
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 text-right">
+                    <a href = "{% url 'ProyectoWeb:noticia_update' noticia.id %}" class="btn">UPDATE</a>
+                </div>   
+               
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %}
