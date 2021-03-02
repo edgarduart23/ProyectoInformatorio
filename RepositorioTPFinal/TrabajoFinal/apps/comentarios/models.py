@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 from apps.ProyectoWeb import Noticia 
+=======
+from apps.ProyectoWeb.models  import Noticia 
+>>>>>>> bf140db06cc84c1019bbdca1e0d6ff875246040f
 from django.db import models
 from django.utils import timezone
 

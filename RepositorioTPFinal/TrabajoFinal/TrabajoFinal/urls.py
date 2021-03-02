@@ -35,7 +35,7 @@ from RepositorioTPFinal.TrabajoFinal.comentarios.views import(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.ProyectoWeb.urls')),
-    path('Categorias/', include('apps.categorias.urls')),
+    path('', include('apps.categorias.urls')),
     path('', include('apps.Usuarios.urls')),
     
     path(''               ,ComenListView.as_view(),   name=  'list'   ),
