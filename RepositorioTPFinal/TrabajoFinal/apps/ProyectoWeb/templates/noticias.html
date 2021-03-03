@@ -19,16 +19,23 @@
                             <p>
                                Author :{{ noticia.author }}
                             </p>
-
+                            <p>
+                                {{ noticia.text}}
+                            </p>
+                             <p>
+                                Posted: {{ noticia.published_dates|timesince}} ago
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
                     <a href="{% url 'ProyectoWeb:noticia_detail' noticia.id %}" class="btn">Read more {{noticia.title}}</a>
                 </div>
+                {% if request.user.is_authenticated %}
                 <div class="col-md-12 text-center">
                     <a href="{% url 'comentarios:comment_create' noticia.id %}" class="btn">Comment </a>
                 </div>
+                {% endif %}
                 <div class="col-md-12 text-center">
                     <a href="{% url 'comentarios:filtro_comment' noticia.id %}" class="btn">View Comments </a>
                 </div>
