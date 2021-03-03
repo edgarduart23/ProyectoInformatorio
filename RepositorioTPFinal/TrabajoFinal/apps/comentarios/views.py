@@ -20,10 +20,13 @@ class ComenCreateview(CreateView):
     form_class = ComentarioForm
     template_name = 'comentarios_create.html'
     success_url = reverse_lazy('comentarios:comment_list')
-    def form_valid(self, form):
-        
+    def form_valid(self, form,*args, **kwargs):
         self.object = form.save(commit=False)
+        post_id = self.kwargs['pk']
+        unaNoticia = Noticia.objects.get(id=post_id)
+        print (unaNoticia)
         self.object.usuario = self.request.user
+        self.object.comentarios_post = unaNoticia
         self.object.save()
         return super(ComenCreateview, self).form_valid(form)
     

@@ -7,5 +7,5 @@ from .models import *
 class ComentarioForm(ModelForm):
     class Meta:
         model = comentario_comment
-        exclude = ( 'usuario','tiempo_comentario_timestamp')
+        exclude = ( 'usuario','tiempo_comentario_timestamp', 'comentarios_post')
         #fields = '__all__'
