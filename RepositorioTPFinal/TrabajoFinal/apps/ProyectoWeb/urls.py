@@ -8,7 +8,9 @@ app_name = 'ProyectoWeb'
 urlpatterns = [
        path('noticias/', NoticiasList.as_view(), name= 'noticia_list'),
        path('noticias/add', NoticiaCreateView.as_view(), name= 'noticia_create'),
+       path('noticias/detail/<int:pk>', NoticiaDetailView.as_view(), name= 'noticia_detail'),
        path('noticias/edit/<int:pk>/', NoticiaUpdateView.as_view(), name= 'noticia_update'),
+       path('noticias/delete/<int:pk>/', NoticiaDeleteView.as_view(), name= 'noticia_delete'),
        path('prueba/', views.PruebaIndex),
        path('', views.PruebaIndex),
        path('filtro/<int:pk>/', FiltroList.as_view(), name = 'filtro_noticia'),

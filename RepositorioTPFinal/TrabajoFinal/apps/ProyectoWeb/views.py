@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import *
 from .forms import *
 from django.urls import reverse_lazy
@@ -48,6 +48,30 @@ class NoticiaUpdateView(UpdateView):
         })
         return context
 
+
+class NoticiaDetailView(DetailView):
+    model = Noticia
+    template_name = 'detailNoticia.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context.update({
+            'view_type': 'detail'
+        })
+        return context
+
+
+class NoticiaDeleteView(DeleteView):
+    model = Noticia
+    form_class = NoticiaForm
+    template_name = 'deleteNoticia.html'
+    success_url = reverse_lazy('ProyectoWeb:noticia_list')
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context.update({
+            'view_type': 'delete'
+        })
+        return context
+
    
 def PruebaIndex(request):
     return render(request, 'index.html')
@@ -72,5 +96,4 @@ class NoticiaMyPostsView(ListView):
         print (user)
         pass
       
-
 
