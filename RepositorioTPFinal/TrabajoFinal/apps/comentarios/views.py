@@ -46,6 +46,13 @@ class ComenDeleteView(DeleteView):
     success_url = '/'
     
     
+class FiltroComentarioList(ListView):
+    model = Noticia
+    template_name = 'filtroComentario.html'
+    def get_queryset(self, *args, **kwargs):
+        noticia_id = self.kwargs['pk']
+        return comentario_comment.objects.filter(comentarios_post = noticia_id)
+    
         
     
     

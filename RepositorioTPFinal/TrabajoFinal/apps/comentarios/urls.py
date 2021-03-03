@@ -10,8 +10,8 @@ urlpatterns = [
     path ('comentarios/detail/<int:pk>'       ,ComenDetailView.as_view(), name=  'comment_detail' ),
     path('comentarios/create/<int:pk>'        ,ComenCreateview.as_view(), name=  'comment_create' ),
     path('comentarios/update/<int:pk>' ,ComenUpdateView.as_view(), name=  'comment_update' ),
-    path('comentarios/delete/<int:pk>'  ,ComenDeleteView.as_view(), name=  'comment_delete' )
-    
+    path('comentarios/delete/<int:pk>'  ,ComenDeleteView.as_view(), name=  'comment_delete' ),
+    path('comentario/filtro/<int:pk>/', FiltroComentarioList.as_view(), name = 'filtro_comment'),
 
 ]
 
