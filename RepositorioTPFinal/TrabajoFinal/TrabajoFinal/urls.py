@@ -20,7 +20,7 @@ from django.conf import settings
 from django.views.generic import detail
 from django.views.generic.edit import CreateView
 
-from RepositorioTPFinal.TrabajoFinal.comentarios.views import(
+from . import(
     
     ComenListView,
     ComenDetailView,
