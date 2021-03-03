@@ -24,7 +24,10 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-                    <a href="{% url 'ProyectoWeb:noticia_detail' noticia.id %}" class="btn">Leer {{noticia.title}}</a>
+                    <a href="{% url 'ProyectoWeb:noticia_detail' noticia.id %}" class="btn">Read more {{noticia.title}}</a>
+                </div>
+                <div class="col-md-12 text-center">
+                    <a href="{% url 'comentarios:comment_create' noticia.id %}" class="btn">Comment {{noticia.title}}</a>
                 </div>
             </div>
             <hr>

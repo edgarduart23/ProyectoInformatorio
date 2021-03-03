@@ -1,13 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'detailNoticia.html' %}
 
-{% block  %} 
+{% block content %}
 
- <div class = "container">
-    {% for object in object_list %}
-        {{object.title}}    
-    {% endfor %}
- </div>
-
-
-
-{% endblock  %}
+{% load crispy_forms_tags %}
+    
+    <div class="container">
+      <h1 style="text-align: center;"> New Comment</h1>
+      <br>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        
+        <button type="submit" class="btn btn-primary">Create</button>
+       </form>
+      </div>
+{% endblock %}

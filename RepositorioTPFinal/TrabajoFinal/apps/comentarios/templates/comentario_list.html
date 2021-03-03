@@ -1,13 +1,39 @@
+
 {% extends 'base.html' %}
-
-{% block  %} 
-
- <div class = "container">
-    {% for object in object_list %}
-        {{object.title}}    
-    {% endfor %}
- </div>
-
-
-
-{% endblock  %}
+{% block content %}
+    <h2 style="text-align: center;">Noticias</h2>
+    <ul>
+        {% for noticia in object_list %}
+            <br>
+            <div class="row vr-gallery">
+                <div class="col-md-8 mb-4">
+                    <div class="row">
+                        <class class="col-md-12 col-lg-7 pr-0 pd-md">
+                            <img src="{{ noticia.image.url }}" alt="">
+                        </class>
+                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                            <h3>Comment date: {{ noticia.tiempo_comentario_timestamp }}</h3>
+                            <p>
+                                Post:   {{ noticia.comentarios_post }}
+                             </p>
+                            <p>
+                               Author :{{ noticia.usuario }}
+                            </p>
+                            <p>
+                               Comment :{{ noticia.contenido_content }}
+                            </p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <a href="{% url 'ProyectoWeb:noticia_detail' noticia.id %}" class="btn">Read more {{noticia.title}}</a>
+                </div>
+                <div class="col-md-12 text-center">
+                    <a href="{% url 'comentarios:comment_create' noticia.id %}" class="btn">Comment {{noticia.title}}</a>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </ul>
+{% endblock %}
