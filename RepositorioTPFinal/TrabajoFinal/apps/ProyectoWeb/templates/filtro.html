@@ -13,7 +13,7 @@
                             <p><small>{{ noticia.created_date }}</small></p>
                             <h3>{{ noticia.title }}</h3>
                             <p>
-                                {{ noticia.text }}
+                                {{ noticia.text| truncatewords_html:2 }}
                             </p>
                             <p>
                                 Posted: {{ noticia.published_dates|timesince }} ago

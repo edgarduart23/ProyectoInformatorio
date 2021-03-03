@@ -12,36 +12,22 @@
                             <img src="{{ noticia.image.url }}" alt="">
                         </class>
                         <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                            <p><small> create date:{{ noticia.created_date }}</small></p>
                             <h3>Title: {{ noticia.title }}</h3>
                             <p>
-                               author :{{ noticia.author }}
-                            </p>
-                             <p>
-                               category:   {{ noticia.category }}
-                            </p>
+                                Category:   {{ noticia.category }}
+                             </p>
                             <p>
-                                {{ noticia.text }}
+                               Author :{{ noticia.author }}
                             </p>
-                            <br>
-                            <p>
-                                Posteado hace {{ noticia.published_dates|timesince }}
-                            </p>
-                            <br>
-                            <p>
-                                Categoria: {{noticia.category}}
-                            </p>
-                        </div>
 
-                        
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-12 text-center">
-                    <a href="#" class="btn">Leer {{noticia.title}}</a>
+                    <a href="{% url 'ProyectoWeb:noticia_detail' noticia.id %}" class="btn">Leer {{noticia.title}}</a>
                 </div>
             </div>
             <hr>
-           
         {% endfor %}
     </ul>
 {% endblock %}
