@@ -1,4 +1,5 @@
-from apps.ProyectoWeb.models  import Noticia 
+
+from .  import Noticia 
 from django.db import models
 from django.utils import timezone
 
