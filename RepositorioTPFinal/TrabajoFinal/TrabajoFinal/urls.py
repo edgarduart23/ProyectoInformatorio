@@ -20,15 +20,7 @@ from django.conf import settings
 from django.views.generic import detail
 from django.views.generic.edit import CreateView
 
-from . import(
-    
-    ComenListView,
-    ComenDetailView,
-    ComenCreateView,
-    ComenUpdateView,
-    ComenDeleteView
-    
-    )    
+ 
         
 
 
@@ -37,12 +29,9 @@ urlpatterns = [
     path('', include('apps.ProyectoWeb.urls')),
     path('', include('apps.categorias.urls')),
     path('', include('apps.Usuarios.urls')),
+    path('', include('apps.comentarios.urls')),
     
-    path(''               ,ComenListView.as_view(),   name=  'list'   ),
-    path ('<slug>/'       ,ComenDetailView.as_view(), name=  'detail' ),
-    path('create/'        ,ComenCreateView.as_view(), name=  'create' ),
-    path('<slug>/update/' ,ComenUpdateView.as_view(), name=  'update' ),
-    path('<slug>/delte/'  ,ComenDeleteView.as_view(), name=  'delete' )
+    
 
     
 
