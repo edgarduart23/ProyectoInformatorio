@@ -1,44 +1,46 @@
 
 {% extends 'base.html' %}
 {% block content %}
-    <h2 style="text-align: center;">Noticias</h2>
+    <h1 style="text-align: center;">News</h1>
     <ul>
         {% for noticia in object_list %}
             <br>
             <div class="row vr-gallery">
-                <div class="col-md-8 mb-4">
-                    <div class="row">
+                <div class="col-md-12 mb-12">
+                    <div class="abs-center">
+
+                        <div class="col-md-12 col-lg-12 light-bg cus-pd ">
+                            <h2>Title: {{ noticia.title }}</h2> 
+                            <pre>Catagory: {{ noticia.category }}    Author :{{ noticia.author }}    Posted: {{ noticia.published_dates|timesince}} ago</pre>
+                        </div>
+
                         <class class="col-md-12 col-lg-7 pr-0 pd-md">
                             <img src="{{ noticia.image.url }}" alt="">
                         </class>
-                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                            <h3>Title: {{ noticia.title }}</h3>
-                            <p>
-                                Category:   {{ noticia.category }}
-                             </p>
-                            <p>
-                               Author :{{ noticia.author }}
-                            </p>
+
+                        <div class="col-md-12 col-lg-12 light-bg cus-pd ">
                             <p>
                                 {{ noticia.text}}
                             </p>
-                             <p>
-                                Posted: {{ noticia.published_dates|timesince}} ago
-                            </p>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 text-center">
+
+
+
+                <div class="col-md-4 text-center">
                     <a href="{% url 'ProyectoWeb:noticia_detail' noticia.id %}" class="btn">Read more {{noticia.title}}</a>
                 </div>
                 {% if request.user.is_authenticated %}
-                <div class="col-md-12 text-center">
+                <div class="col-md-4 text-center">
                     <a href="{% url 'comentarios:comment_create' noticia.id %}" class="btn">Comment </a>
                 </div>
                 {% endif %}
-                <div class="col-md-12 text-center">
+                <div class="col-md-4 text-center">
                     <a href="{% url 'comentarios:filtro_comment' noticia.id %}" class="btn">View Comments </a>
                 </div>
+
             </div>
             <hr>
         {% endfor %}
