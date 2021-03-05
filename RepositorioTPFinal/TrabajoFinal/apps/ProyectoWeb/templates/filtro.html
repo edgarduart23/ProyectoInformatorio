@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
+    
     <h2>Noticias</h2>
+    <div class="container">
+      <h1 style="text-align: center;"> Fecha </h1>
+      <br>
+      <form method="Get" enctype="multipart/form-data">
+        {{fecha.as_p}}
+        
+        <button type="submit" class="btn btn-primary">Crear</button>
+       </form>
+      </div>
     <ul>
         {% for noticia in object_list %}
             <div class="row vr-gallery">
