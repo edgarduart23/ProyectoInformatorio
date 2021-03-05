@@ -4,12 +4,17 @@ from .models import *
 from .forms import *
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from apps.categorias.models import Categoria
 
 class NoticiasList(ListView):
     queryset = Noticia.objects.order_by('-created_date')
     model = Noticia
     template_name = 'noticias.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        categorias = Categoria.objects.all()
+        context['categorias'] = categorias
+        return context
     
 class NoticiaCreateView(LoginRequiredMixin,CreateView):
     model = Noticia
@@ -83,6 +88,11 @@ class FiltroList(ListView):
     def get_queryset(self, *args, **kwargs):
         categoria_id = self.kwargs['pk']
         return Noticia.objects.filter(category = categoria_id)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context['fecha'] = FormularioFecha()
+        return context
         
     
 class NoticiaMyPostsView(ListView):
