@@ -5,6 +5,7 @@ from .forms import *
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from apps.categorias.models import Categoria
+from datetime import datetime
 
 class NoticiasList(ListView):
     queryset = Noticia.objects.order_by('-created_date')
@@ -89,11 +90,23 @@ class FiltroList(ListView):
         categoria_id = self.kwargs['pk']
         return Noticia.objects.filter(category = categoria_id)
     
+    #def get_queryset(self):
+        #queryset = super(AgendaGeneralListView, self).get_queryset()
+        #fecha = date.today()
+        #if self.request.GET.get('fecha'):
+            #from datetime import datetime
+            #fecha_str = self.request.GET.get('fecha')
+            #fecha = datetime.strptime(fecha_str, '%d-%m-%Y')
+        #return queryset.filter(fecha_separacion=fecha)
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
         context['fecha'] = FormularioFecha()
         return context
-        
+    
+
+    
+    
     
 class NoticiaMyPostsView(ListView):
     model = Noticia

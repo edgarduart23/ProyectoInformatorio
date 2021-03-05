@@ -1,7 +1,9 @@
 
 {% extends 'base.html' %}
 {% block content %}
-    <h1> {{categorias}} </h1>
+     {% for categoria in categorias %}
+    <h1> {{categoria.name}} </h1>
+     {%endfor%}
     <h1 style="text-align: center;">News</h1>
     <ul>
         {% for noticia in object_list %}
