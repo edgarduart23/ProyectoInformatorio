@@ -30,6 +30,18 @@ class ComenCreateview(CreateView):
         self.object.save()
         return super(ComenCreateview, self).form_valid(form)
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        post_id = self.kwargs['pk']
+        print(post_id)
+        context['post'] = Noticia.objects.filter(id = post_id)
+        print(context)
+        return context
+    #def get_queryset(self, *args, **kwargs):
+        #noticia_id = self.kwargs['pk']
+        #print(noticia_id)
+        #return Noticia.objects.filter(id = noticia_id)
+    
 class ComenUpdateView(UpdateView):
     model = comentario_comment
     fields= (
