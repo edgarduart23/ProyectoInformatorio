@@ -1,12 +1,16 @@
 
 {% extends 'base.html' %}
 {% block content %}
+    <h1 style="text-align: left;">Categories</h1>
     {% for categoria in categorias %}
-    <h1> {{categoria.name}} </h1>
+        <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}"> {{categoria.name}} </a>
     {%endfor%}
+    <br>
+    <br>
+     <h1 style="text-align: center;">Posts</h1>
     <div class="mx-auto" style="width: 600px;">
         <div class="col-lg-12 light-bg cus-pd"> 
-            <h1 style="text-align: center;">News</h1>
+           
             <ul>
             {% for noticia in object_list %}
             <br>
