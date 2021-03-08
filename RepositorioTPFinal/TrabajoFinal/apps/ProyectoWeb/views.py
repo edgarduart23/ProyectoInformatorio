@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from apps.categorias.models import Categoria
 from datetime import datetime
+from django.http import HttpResponse
 
 class NoticiasList(ListView):
     queryset = Noticia.objects.order_by('-created_date')
@@ -86,25 +87,51 @@ class FiltroList(ListView):
     model = Noticia
     template_name = 'filtro.html'
 
-    def get_queryset(self, *args, **kwargs):
-        categoria_id = self.kwargs['pk']
-        return Noticia.objects.filter(category = categoria_id)
+    #def get_queryset(self, *args, **kwargs):
+    #    categoria_id = self.kwargs['pk']
+    #    return Noticia.objects.filter(category = categoria_id)
     
-    #def get_queryset(self):
-        #queryset = super(AgendaGeneralListView, self).get_queryset()
-        #fecha = date.today()
-        #if self.request.GET.get('fecha'):
-            #from datetime import datetime
-            #fecha_str = self.request.GET.get('fecha')
-            #fecha = datetime.strptime(fecha_str, '%d-%m-%Y')
-        #return queryset.filter(fecha_separacion=fecha)
+    def get_queryset(self, *args, **kwargs):
+        #fecha = self.kwargs['Fecha_day']
+        categoria_id = self.kwargs['pk']
+        day = self.request.GET.get('Fecha_day')
+        month = self.request.GET.get('Fecha_month')
+        year = self.request.GET.get('Fecha_year')
+        noticias = Noticia.objects.all()
+        
+
+        print(day)
+        print(month)
+        print(year)
+        return Noticia.objects.filter(created_date__year = year).filter(created_date__month = month).filter( created_date__day = day).filter(category = categoria_id)
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
         context['fecha'] = FormularioFecha()
         return context
-    
 
+class OrdenarList(ListView):
+    model = Noticia
+    template_name = 'ordenar.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context['fecha'] = FormularioFecha()
+        return context
+    
+    def get_queryset(self, *args, **kwargs):
+        #fecha = self.kwargs['Fecha_day']
+        day = self.request.GET.get('Fecha_day')
+        month = self.request.GET.get('Fecha_month')
+        year = self.request.GET.get('Fecha_year')
+        noticias = Noticia.objects.all()
+        
+
+        print(day)
+        print(month)
+        print(year)
+        return Noticia.objects.filter(created_date__year = year).filter(created_date__month = month).filter( created_date__day = day)
+        
     
     
     
@@ -112,6 +139,10 @@ class NoticiaMyPostsView(ListView):
     model = Noticia
     template_name = 'noticia_myposts.html'
 
+    def get_queryset(self, *args, **kwargs):
+        categoria_id = self.kwargs['pk']
+        return Noticia.objects.filter(category = categoria_id)
+    
     def get_queryset(self, *args, **kwargs):
         user = self.request.user
         print (user)

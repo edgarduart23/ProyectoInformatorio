@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
     
-    <h2>Posts</h2>
+    <h2>Noticias</h2>
     <div class="container">
-      <h1 style="text-align: center;">Date  </h1>
+      <h1 style="text-align: center;"> Fecha </h1>
       <br>
-      <form method="Get"   enctype="multipart/form-data">
+      <form method="get"   enctype="multipart/form-data">
+     
         {{fecha.as_p}}
         
-        <button type="submit" class="btn btn-primary">Filter</button>
+        <button type="submit" class="btn btn-primary">Ordenar</button>
        </form>
       </div>
-      <br>
+    
     <ul>
         {% for noticia in object_list %}
             <div class="row vr-gallery">
@@ -24,9 +25,6 @@
                             <p><small>{{ noticia.created_date }}</small></p>
                             <h3>{{ noticia.title }}</h3>
                             <p>
-                                {{ noticia.category }}
-                            </p>
-                            <p>
                                 {{ noticia.text| truncatewords_html:2 }}
                             </p>
                             <p>
@@ -35,8 +33,10 @@
                         </div>
                     </div>
                 </div>
-               
+              
             </div>
         {% endfor %}
     </ul>
-{% endblock %}
+
+
+  {% endblock %}
