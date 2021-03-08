@@ -65,6 +65,12 @@ class FiltroComentarioList(ListView):
         noticia_id = self.kwargs['pk']
         return comentario_comment.objects.filter(comentarios_post = noticia_id)
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        post_id = self.kwargs['pk']
+        print(post_id)
+        context['post'] = Noticia.objects.filter(id = post_id)
+        return context
         
     
     
