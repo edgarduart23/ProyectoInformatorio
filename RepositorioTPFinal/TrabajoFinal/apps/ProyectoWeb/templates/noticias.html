@@ -1,10 +1,14 @@
 
 {% extends 'base.html' %}
 {% block content %}
-    <h1 style="text-align: left;">Categories</h1>
+
+    <h1 style="text-align: left; background-size: 50px;">Categories</h1>
     {% for categoria in categorias %}
-        <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}"> {{categoria.name}} </a>
+        <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}"> {{categoria.name}} </a>//
     {%endfor%}
+    <br>
+    <br>
+    <h1>Order by </h1><a style="text-align: center;" href="{% url 'ProyectoWeb:ordenar_noticia' %}">datetime</a>
     <br>
     <br>
      <h1 style="text-align: center;">Posts</h1>
