@@ -30,7 +30,8 @@
             {% endfor %}
         </div>
         <div class="col-lg-12 light-bg cus-pd"> 
-            <h1 style="text-align: center;">Comments</h1>
+            <h1 style="text-align: center;">Comments</h1></div>
+            <br>
             <ul>
             {% for noticia in object_list %}
 
@@ -45,7 +46,6 @@
                     <br><p>{{ noticia.contenido_content }}</p>
                 </div> 
             </div>
-        </div>
         <br>
         {% endfor %}
         <class class="col-md-12 col-lg-7 pr-0 pd-md"></class>
@@ -56,4 +56,5 @@
         </a>
     </div>
     </ul>
+    <br>
 {% endblock %}

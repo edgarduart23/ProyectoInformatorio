@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from  apps.comentarios.models import comentario_comment, vistacomentario_postview, megusta_like
 from .forms import *
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class ComenListView(ListView):
@@ -15,7 +16,7 @@ class ComenListView(ListView):
 class ComenDetailView(DetailView):
     model = comentario_comment
     
-class ComenCreateview(CreateView):
+class ComenCreateview(LoginRequiredMixin,CreateView):
     model = comentario_comment
     form_class = ComentarioForm
     template_name = 'comentarios_create.html'
@@ -42,7 +43,7 @@ class ComenCreateview(CreateView):
         #print(noticia_id)
         #return Noticia.objects.filter(id = noticia_id)
     
-class ComenUpdateView(UpdateView):
+class ComenUpdateView(LoginRequiredMixin,UpdateView):
     model = comentario_comment
     fields= (
         'category' ,
