@@ -97,7 +97,7 @@ class FiltroList(ListView):
         day = self.request.GET.get('Fecha_day')
         month = self.request.GET.get('Fecha_month')
         year = self.request.GET.get('Fecha_year')
-        noticias = Noticia.objects.all()
+        
         
 
         print(day)
@@ -124,15 +124,43 @@ class OrdenarList(ListView):
         day = self.request.GET.get('Fecha_day')
         month = self.request.GET.get('Fecha_month')
         year = self.request.GET.get('Fecha_year')
+        
         noticias = Noticia.objects.all()
+        listaNoticias = []
+        if day != None and month != None and year != None :
+            for noticia in noticias:
+                day = int(day)
+                month = int(month)
+                year = int(year)
+                fecha = noticia.created_date
+                year_post = int(fecha.strftime('%Y'))
+                month_post = fecha.strftime('%m')
+                month_post = int(month_post.lstrip ( '0'))
+                day_post = fecha.strftime('%d')
+                day_post = int(day_post.lstrip ( '0'))
+                print (day)
+                #print(type(day))
+                print (day_post)
+                #print(type(day))
+                #print (month)
+                #print (month_post)
+                #print (year)
+                #print (year_post)
+                #if (2 >= 2):
+                #    print('entra')
+                    
+                if ((year <= year_post) and (month <= month_post) and (day <= day_post)):
+                #if ((day >= day_post)):
+                    listaNoticias.append((noticia))
+            
+            return listaNoticias 
+            #print(day)
+            #print(month)
+            #print(year)
+            #return Noticia.objects.filter(created_date__year = year).filter(created_date__month = month).filter( created_date__day = day)
+            #return Noticia.objects.filter( created_date__gte= day)
+            #return Noticia.objects.order_by('created_date__year')
         
-
-        print(day)
-        print(month)
-        print(year)
-        return Noticia.objects.filter(created_date__year = year).filter(created_date__month = month).filter( created_date__day = day)
-        
-    
     
     
 class NoticiaMyPostsView(ListView):
