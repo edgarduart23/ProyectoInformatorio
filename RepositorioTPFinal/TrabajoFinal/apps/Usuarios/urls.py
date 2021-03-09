@@ -9,7 +9,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 app_name = 'Usuarios'
 urlpatterns = [
        path('registro/', views.register, name = 'registro'),
-       path('login/', LoginView.as_view(template_name = 'login.html'), name = 'login'),
+       path('accounts/login/', LoginView.as_view(template_name = 'login.html'), name = 'login'),
        path('logout/', LogoutView.as_view(template_name ='logout.html'), name = 'logout'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

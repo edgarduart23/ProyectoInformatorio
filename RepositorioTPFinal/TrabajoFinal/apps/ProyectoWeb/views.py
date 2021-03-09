@@ -43,7 +43,7 @@ class NoticiaCreateView(LoginRequiredMixin,CreateView):
         return context
      
 
-class NoticiaUpdateView(UpdateView):
+class NoticiaUpdateView(LoginRequiredMixin,UpdateView):
     model = Noticia
     form_class = NoticiaForm
     template_name = 'updateNoticia.html'
@@ -67,7 +67,7 @@ class NoticiaDetailView(DetailView):
         return context
 
 
-class NoticiaDeleteView(DeleteView):
+class NoticiaDeleteView(LoginRequiredMixin,DeleteView):
     model = Noticia
     form_class = NoticiaForm
     template_name = 'deleteNoticia.html'
