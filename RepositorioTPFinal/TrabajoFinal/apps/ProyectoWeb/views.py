@@ -142,19 +142,27 @@ class OrdenarList(ListView):
                 day_post = fecha.strftime('%d')
                 day_post = int(day_post.lstrip ( '0'))
                 print (day)
-                #print(type(day))
                 print (day_post)
+                print (month)
+                print (month_post)
                 #print(type(day))
-                #print (month)
-                #print (month_post)
-                #print (year)
-                #print (year_post)
+                
+                #print(type(day))
+                
+                
+                print (year)
+                print (year_post)
                 #if (2 >= 2):
                 #    print('entra')
                     
-                if ((year >= year_post) and (month >= month_post) and (day >= day_post)):
-                #if ((day >= day_post)):
+                if ((year >= year_post) and (month > month_post)):
                     listaNoticias.append((noticia))
+                elif ((year >= year_post) and (month == month_post)):
+                    if (day >= day_post):
+                       listaNoticias.append((noticia))
+                 
+                #if ((day >= day_post)):
+                    
             print (listaNoticias)
             return listaNoticias 
             #print(day)
