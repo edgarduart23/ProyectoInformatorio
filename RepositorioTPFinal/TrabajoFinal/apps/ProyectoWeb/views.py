@@ -97,8 +97,10 @@ class FiltroList(ListView):
         day = self.request.GET.get('Fecha_day')
         month = self.request.GET.get('Fecha_month')
         year = self.request.GET.get('Fecha_year')
-        
-        
+        if day:
+            return Noticia.objects.filter(created_date__year = year).filter(created_date__month = month).filter( created_date__day = day).filter(category = categoria_id)
+        else:
+            return Noticia.objects.filter(category = categoria_id)
 
         print(day)
         print(month)
