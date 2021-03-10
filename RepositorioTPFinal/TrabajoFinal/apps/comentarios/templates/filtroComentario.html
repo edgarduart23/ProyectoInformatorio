@@ -36,13 +36,13 @@
             {% for noticia in object_list %}
 
             <div class="row">
-                <class class="col-md-12 col-lg-7 pr-0 pd-md">
+                <class class="col-md-12 col-lg-12 pr-0 pd-md">
                 <img src="{{ noticia.image.url }}" alt="">
                 </class>
-                <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                    <p><h6>{{ noticia.usuario }}</h6></p>
-                    <p><h3>{{ noticia.comentarios_post }}</h3></p>
-                    <p>{{ noticia.tiempo_comentario_timestamp }}</p>
+                <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
+                    <p><h3>{{ noticia.usuario }}</h3></p>
+                    
+                    <p><small>{{ noticia.tiempo_comentario_timestamp }}</small></p>
                     <br><p>{{ noticia.contenido_content }}</p>
                 </div> 
             </div>
