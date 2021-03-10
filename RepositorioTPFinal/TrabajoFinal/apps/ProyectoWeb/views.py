@@ -127,6 +127,9 @@ class OrdenarList(ListView):
         
         noticias = Noticia.objects.all()
         listaNoticias = []
+        print(type(listaNoticias))
+        a = len(listaNoticias)
+        print(a)
         if day != None and month != None and year != None :
             for noticia in noticias:
                 day = int(day)
@@ -149,10 +152,10 @@ class OrdenarList(ListView):
                 #if (2 >= 2):
                 #    print('entra')
                     
-                if ((year <= year_post) and (month <= month_post) and (day <= day_post)):
+                if ((year >= year_post) and (month >= month_post) and (day >= day_post)):
                 #if ((day >= day_post)):
                     listaNoticias.append((noticia))
-            
+            print (listaNoticias)
             return listaNoticias 
             #print(day)
             #print(month)
