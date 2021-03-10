@@ -158,7 +158,7 @@ class OrdenarList(ListView):
                 if ((year >= year_post) and (month > month_post)):
                     listaNoticias.append((noticia))
                 elif ((year >= year_post) and (month == month_post)):
-                    if (day >= day_post):
+                    if (day == day_post) or (day > day_post):
                        listaNoticias.append((noticia))
                  
                 #if ((day >= day_post)):
