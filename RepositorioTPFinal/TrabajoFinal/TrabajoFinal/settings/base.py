@@ -79,6 +79,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'TrabajoFinal.wsgi.application'
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -140,5 +142,5 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
-
+LOGOUT_REDIRECT_URL = 'ProyectoWeb:noticia_list'
 LOGIN_REDIRECT_URL = 'ProyectoWeb:noticia_list'

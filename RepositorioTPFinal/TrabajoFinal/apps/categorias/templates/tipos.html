@@ -1,20 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Categorias</h2>
-    <ul>
-        {% for categoria in object_list %}
-            <div class="row vr-gallery">
-                <div class="col-md-8 mb-4">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
-                            <img src="{{ categoria.image.url }}" alt="">
-                        </div>
-                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
-                            <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}" class="btn"><h1>{{ categoria.name }}</h1></a>
+<div class="mx-auto" style="width: 600px;">
+    <div class="col-lg-12 light-bg cus-pd">
+
+        <h1>Categories:</h1>
+        <ul>
+            <br>
+            {% for categoria in object_list %}
+                
+                    <div class="col-md-8 mb-4">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-7 pr-0 pd-md">
+                                
+                                <img class="img-fluid" src="{{ categoria.image.url }}" alt=""/>
+                            </div>
+                            <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                                <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}" class="btn"><h3 class="text-uppercase">{{ categoria.name }}</h3></a>
+                                
+                            
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div> 
-        {% endfor %}
-    </ul>
+                
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}
