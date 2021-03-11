@@ -13,5 +13,5 @@ class NoticiaForm(ModelForm):
         #fields = '__all__'
 
 class FormularioFecha(forms.Form):
-    Fecha = forms.DateField(widget= SelectDateWidget())
+    Fecha = forms.DateField(widget= SelectDateWidget(), initial=timezone.now())
         
