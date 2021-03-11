@@ -6,13 +6,13 @@
     {% for categoria in categorias %}
     <div class="col-md-3 pl-0 pr-0">
         <div class="card">
-            <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}"><h5>{{categoria.name}}</h5></a> 
+            <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}"><h5  class="text-capitalize">{{categoria.name}}</h5></a> 
         </div>
     </div>
     {%endfor%}
     <br>
     <br>
-    <h1>Order by: </h1><a href="{% url 'ProyectoWeb:ordenar_noticia' %}"><h5>date</h5></a>
+    <h1>Order by: </h1><a href="{% url 'ProyectoWeb:ordenar_noticia' %}"><h5>Date</h5></a>
     <br>
     <br>
     <h1 style="text-align: center;">Posts</h1>
