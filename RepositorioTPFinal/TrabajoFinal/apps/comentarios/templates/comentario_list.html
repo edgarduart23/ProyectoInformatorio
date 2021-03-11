@@ -2,6 +2,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2 style="text-align: center;">Noticias</h2>
+    
     <ul>
         {% for noticia in object_list %}
             <br>
@@ -25,12 +26,6 @@
                              
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12 text-center">
-                    <a href="{% url 'ProyectoWeb:noticia_detail' noticia.id %}" class="btn">Read more {{noticia.title}}</a>
-                </div>
-                <div class="col-md-12 text-center">
-                    <a href="{% url 'comentarios:comment_create' noticia.id %}" class="btn">Comment {{noticia.title}}</a>
                 </div>
             </div>
             <hr>

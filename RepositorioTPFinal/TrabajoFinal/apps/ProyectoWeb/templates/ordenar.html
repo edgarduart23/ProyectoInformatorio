@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+    <h2>Noticias</h2>
+    <div class="container">
+      <h1 style="text-align: center;"> Fecha </h1>
+      <br>
+      <form method="get"   enctype="multipart/form-data">
+     
+        {{fecha.as_p}}
+        <br>
+        <button type="submit" class="btn btn-primary">Order</button>
+       </form>
+      </div>
+      <br>
+    <ul>
+        {% for noticia in object_list %}
+            <div class="row vr-gallery">
+                <div class="col-md-8 mb-4">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-7 pr-0 pd-md">
+                            <img src="{{ noticia.image.url }}" alt="">
+                        </div>
+                        <div class="col-md-12 col-lg-5 light-bg cus-pd cus-arrow-left">
+                            <p><small>{{ noticia.created_date }}</small></p>
+                            <h3>{{ noticia.title }}</h3>
+                            <p>
+                                {{ noticia.text| truncatewords_html:2 }}
+                            </p>
+                            <p>
+                                Posted: {{ noticia.published_dates|timesince }} ago
+                            </p>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        {% endfor %}
+    </ul>
+
+
+  {% endblock %}
