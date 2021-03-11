@@ -164,7 +164,6 @@ class OrdenarList(ListView):
                        listaNoticias.append((noticia))
                  
                 #if ((day >= day_post)):
-                    
             print (listaNoticias)
             return listaNoticias 
             #print(day)
