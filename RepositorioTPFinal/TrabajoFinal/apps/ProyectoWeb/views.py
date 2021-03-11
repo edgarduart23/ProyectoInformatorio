@@ -154,8 +154,7 @@ class OrdenarList(ListView):
                 
                 print (year)
                 print (year_post)
-                #if (2 >= 2):
-                #    print('entra')
+               
                     
                 if ((year >= year_post) and (month > month_post)):
                     listaNoticias.append((noticia))
@@ -166,6 +165,9 @@ class OrdenarList(ListView):
                 #if ((day >= day_post)):
             print (listaNoticias)
             return listaNoticias 
+        else:
+            return Noticia.objects.all()
+           
             #print(day)
             #print(month)
             #print(year)
