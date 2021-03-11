@@ -2,59 +2,52 @@
 {% extends 'base.html' %}
 {% block content %}
 
+    
     <div class="mx-auto" style="width: 600px;">
-        <div class="container"> 
-       <div class="mx-auto" style="width: 600px;">
         <div class="col-lg-12 light-bg cus-pd"> 
             <h1 style="text-align: center;">News</h1>
             <ul>
             {% for posts in post %}
-                <br>
-                <h6>{{ posts.title }}</h6> 
-                <pre><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pin-angle-fill" viewBox="0 0 16 16">
+            <br>
+            <pre><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pin-angle-fill" viewBox="0 0 16 16">
                 <path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.927 5.927 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182c-.195.195-1.219.902-1.414.707-.195-.195.512-1.22.707-1.414l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.92 5.92 0 0 1 1.013.16l3.134-3.133a2.772 2.772 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146z"/>
                 </svg>  {{ posts.category }}            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                 <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                 </svg> {{ posts.author }}            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
                 <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
                 <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-                </svg> {{ posts.published_dates|timesince}} ago</pre>
-                <img class="img-fluid" src="{{ posts.image.url }}" alt=""/>
-                <dt class="col-sm-12 text-truncate">
-                    <p>{{ posts.text}}</p>
-                </dt>
-                <p>...</p>
+                </svg> {{ posts.published_dates|timesince}} ago
+            </pre>
             
-              
-                <hr>
+            <h4>{{ posts.title }}</h4> 
+            <img width="570" height="250" src="{{ posts.image.url }}" alt=""/>
+            <dt class="col-sm-12 text-truncate">
+                <p><small>{{ posts.text}}</small></p>
+            </dt>
+            <p>...</p>
+           
             {% endfor %}
         </div>
+        <h1 style="text-align: center;">Comments</h1>
+    
         <div class="col-lg-12 light-bg cus-pd"> 
-            <h1 style="text-align: center;">Comments</h1></div>
-            <br>
-            <ul>
             {% for noticia in object_list %}
-
-            <div class="row">
-                <class class="col-md-12 col-lg-12 pr-0 pd-md">
-                <img src="{{ noticia.image.url }}" alt="">
-                </class>
-                <div class="col-md-12 col-lg-12 light-bg cus-pd cus-arrow-left">
-                    <p><h3>{{ noticia.usuario }}</h3></p>
-                    
-                    <p><small>{{ noticia.tiempo_comentario_timestamp }}</small></p>
-                    <br><p>{{ noticia.contenido_content }}</p>
-                </div> 
-            </div>
-        <br>
-        {% endfor %}
-        <class class="col-md-12 col-lg-7 pr-0 pd-md"></class>
-        <a class="btn btn-outline-primary btn-sm" href="{% url 'ProyectoWeb:noticia_list' %}" role="button">Go back
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
-            </svg>
-        </a>
+            <img src="{{ noticia.image.url }}" alt="">
+            <p><h4>{{ noticia.usuario }}</h4></p>
+            <p>{{ noticia.tiempo_comentario_timestamp }}</p>
+            <br>
+            <p>{{ noticia.contenido_content }}</p>
+            <hr>    
+            {% endfor %}
+            
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'ProyectoWeb:noticia_list' %}" role="button">Go back
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                </svg>
+            </a>
+        </div>
+    
     </div>
     </ul>
-    <br>
+    
 {% endblock %}
