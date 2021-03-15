@@ -8,7 +8,7 @@
         <div class="card-body">
           <h3 class="card-title">Categories</h3>
           {% for categoria in categorias %}
-    <div class="col-md-3 pl-0 pr-0">
+    <div class="col-md-6 pl-0 pr-0">
         <div class="card">
             <a href="{% url 'ProyectoWeb:filtro_noticia' categoria.id %}"><h5  class="text-capitalize">{{categoria.name}}</h5></a> 
         </div>
