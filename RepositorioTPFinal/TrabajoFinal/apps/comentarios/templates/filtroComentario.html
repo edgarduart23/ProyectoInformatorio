@@ -34,7 +34,7 @@
             {% for noticia in object_list %}
             <img src="{{ noticia.image.url }}" alt="">
             <p><h4>{{ noticia.usuario }}</h4></p>
-            <p>{{ noticia.tiempo_comentario_timestamp }}</p>
+            <p><small>{{ noticia.tiempo_comentario_timestamp }}</small></p>
             <br>
             <p>{{ noticia.contenido_content }}</p>
             <hr>    
